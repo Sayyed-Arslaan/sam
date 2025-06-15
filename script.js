@@ -1,6 +1,6 @@
 const gallery = document.getElementById("gallery");
 
-// 📝 Custom Captions — change as you like!
+// 📝 Custom Captions
 const captions = {
   10002: "Her Smile is Magic 💫",
   10003: "Best Day Ever!",
@@ -13,15 +13,10 @@ const captions = {
   10010: "Sunset Vibes 🌅",
   10011: "Unfiltered Joy!",
   10051: "Forever Grateful 🫶"
-  // Add more as needed
+  // More captions as needed
 };
 
 for (let i = 10002; i <= 10051; i++) {
-  // Skip if image is missing — optional
-  if ([10021, 10026, 10028, 10031, 10033, 10035, 10038, 10041, 10044, 10047, 10048, 10051].includes(i)) {
-    // continue; // Uncomment if you want to skip certain images
-  }
-
   const wrapper = document.createElement("div");
   wrapper.className = "img-wrapper";
 
@@ -38,3 +33,20 @@ for (let i = 10002; i <= 10051; i++) {
   wrapper.appendChild(caption);
   gallery.appendChild(wrapper);
 }
+
+// 💡 Open Lightbox
+function openLightbox(src) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  lightboxImg.src = src;
+  lightbox.classList.remove("hidden");
+  document.body.classList.add("no-scroll");
+}
+
+// 🛑 Close on Click
+document.getElementById("lightbox").addEventListener("click", () => {
+  document.getElementById("lightbox").classList.add("hidden");
+  document.getElementById("lightbox-img").src = "";
+  document.body.classList.remove("no-scroll");
+});
