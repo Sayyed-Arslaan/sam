@@ -57,7 +57,7 @@ const captions = {
 10048: "Forever my safe person 🛡️",
 10049: "You’re the beauty in this frame 💖",
 10051: "The calm in all my storms 🌧️☀️",
-10052: "You and me — always a vibe 🫶",
+10052: "You and me — always a vibe 🫶"
 
 };
 
