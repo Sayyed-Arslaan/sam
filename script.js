@@ -10,7 +10,7 @@ const captions = {
   10002: "The beginning of memories 🌸",
   10005: "Unforgettable laugh 😂",
   10010: "Shining bright 🌟",
-  10020: "Our favorite click 💕",
+  10020: " click 💕",
   10050: "Best forever 💖",
   10003: "My person, always 💫",
 10004: "Soft hearts and loud laughs 💕",
