@@ -148,3 +148,6 @@ body.no-scroll {
   font-style: italic;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 }
+.hidden {
+  display: none !important;
+}
