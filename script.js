@@ -11,8 +11,7 @@ const captions = {
   10005: "Unforgettable laugh 😂",
   10010: "Shining bright 🌟",
   10020: "Our favorite click 💕",
-  10050: "Best forever 💖",
- 
+  10050: "Best forever 💖"
 };
 
 const gallery = document.getElementById("gallery");
@@ -27,7 +26,7 @@ validImageNumbers.forEach(num => {
   const img = document.createElement("img");
   img.src = `images/${num}.jpg`;
   img.alt = `Photo ${num}`;
-  img.dataset.caption = captions[num] || "A beautiful Pookie ✨";
+  img.dataset.caption = captions[num] || "A beautiful memory ✨";
 
   const caption = document.createElement("div");
   caption.classList.add("caption");
@@ -49,4 +48,3 @@ lightbox.addEventListener("click", () => {
   lightbox.classList.add("hidden");
   document.body.classList.remove("no-scroll");
 });
-
