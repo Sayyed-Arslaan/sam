@@ -26,7 +26,7 @@ validImageNumbers.forEach(num => {
   const img = document.createElement("img");
   img.src = `images/${num}.jpg`;
   img.alt = `Photo ${num}`;
-  img.dataset.caption = captions[num] || "A beautiful memory ✨";
+  img.dataset.caption = captions[num] || "A beautiful Pookie (chomu) ✨";
 
   const caption = document.createElement("div");
   caption.classList.add("caption");
