@@ -1,55 +1,62 @@
-// ✅ Image filenames (updated)
-const missing = [10021,10026,10028,10031,10033,10035,10038,10041,10044,10047,10048,10051];
-const gallery = document.getElementById('gallery');
+// Image numbers (10002 to 10050 with missing numbers handled)
+const validImageNumbers = [
+  10002, 10003, 10004, 10005, 10006, 10007, 10008, 10009, 10010,
+  10011, 10012, 10013, 10014, 10015, 10016, 10017, 10018, 10019, 10020,
+  10021, 10022, 10023, 10024, 10025, 10026, 10027, 10028, 10029, 10030,
+  10031, 10032, 10033, 10034, 10035, 10036, 10037, 10038, 10039, 10040,
+  10041, 10042, 10043, 10044, 10045, 10046, 10049, 10050
+];
 
-// ✅ Captions — add more if needed
+// Optional: Custom captions for each image (you can edit these)
 const captions = {
-  10002: "First Smile 😄",
-  10003: "Sunshine in Saree ☀️",
-  10004: "Classic Pose ❤️",
-  10005: "Elegance overload 💫",
-  // Add as many as needed...
+  10002: "First memory 💫",
+  10003: "Smile that shines 🌟",
+  10004: "Always joyful 😄",
+  10005: "Forever besties ❤️",
+  // Add more custom captions as needed...
 };
 
-// ✅ Load all images
-for (let i = 10002; i <= 10050; i++) {
-  if (missing.includes(i)) continue;
+const gallery = document.getElementById("gallery");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+let lightboxCaption = document.getElementById("lightbox-caption");
 
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('img-wrapper');
-
-  const img = document.createElement('img');
-  img.src = `images/${i}.jpg`;
-  img.alt = `Photo ${i}`;
-  img.setAttribute('data-id', i);
-
-  const caption = document.createElement('div');
-  caption.className = 'caption';
-  caption.innerText = captions[i] || `Photo ${i}`;
-
-  wrapper.appendChild(img);
-  wrapper.appendChild(caption);
-  gallery.appendChild(wrapper);
+// If caption div doesn't exist, create and append
+if (!lightboxCaption) {
+  lightboxCaption = document.createElement("div");
+  lightboxCaption.id = "lightbox-caption";
+  lightbox.appendChild(lightboxCaption);
 }
 
-// ✅ Lightbox logic
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxCaption = document.getElementById('lightbox-caption');
+// Load images dynamically
+validImageNumbers.forEach(num => {
+  const imgWrapper = document.createElement("div");
+  imgWrapper.classList.add("img-wrapper");
 
-document.querySelectorAll('#gallery img').forEach(img => {
-  img.addEventListener('click', () => {
-    const imgId = img.getAttribute('data-id');
+  const img = document.createElement("img");
+  img.src = `images/${num}.jpg`;
+  img.alt = `Photo ${num}`;
+  img.dataset.caption = captions[num] || "A beautiful memory ✨";
+
+  const caption = document.createElement("div");
+  caption.classList.add("caption");
+  caption.textContent = img.dataset.caption;
+
+  imgWrapper.appendChild(img);
+  imgWrapper.appendChild(caption);
+  gallery.appendChild(imgWrapper);
+
+  // Add click event for full view
+  img.addEventListener("click", () => {
     lightboxImg.src = img.src;
-    lightboxCaption.innerText = captions[imgId] || `Photo ${imgId}`;
-    lightbox.classList.remove('hidden');
-    document.body.classList.add('no-scroll');
+    lightboxCaption.textContent = img.dataset.caption;
+    lightbox.classList.remove("hidden");
+    document.body.classList.add("no-scroll");
   });
 });
 
-lightbox.addEventListener('click', () => {
-  lightbox.classList.add('hidden');
-  lightboxImg.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
-  lightboxCaption.innerText = '';
-  document.body.classList.remove('no-scroll');
+// Close lightbox on click
+lightbox.addEventListener("click", () => {
+  lightbox.classList.add("hidden");
+  document.body.classList.remove("no-scroll");
 });
