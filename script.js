@@ -1,32 +1,30 @@
-const gallery = document.getElementById("gallery");
+// ✅ Image filenames (updated)
+const missing = [10021,10026,10028,10031,10033,10035,10038,10041,10044,10047,10048,10051];
+const gallery = document.getElementById('gallery');
 
-// 📝 Custom Captions
+// ✅ Captions — add more if needed
 const captions = {
-  10002: "Her Smile is Magic 💫",
-  10003: "Best Day Ever!",
-  10004: "Pure Happiness 😄",
-  10005: "Golden Hour Glow",
-  10006: "Unforgettable Day 💕",
-  10007: "Cuteness Overload!",
-  10008: "This moment 😍",
-  10009: "Elegant & Strong",
-  10010: "Sunset Vibes 🌅",
-  10011: "Unfiltered Joy!",
-  10051: "Forever Grateful 🫶"
-  // More captions as needed
+  10002: "First Smile 😄",
+  10003: "Sunshine in Saree ☀️",
+  10004: "Classic Pose ❤️",
+  10005: "Elegance overload 💫",
+  // Add as many as needed...
 };
 
-for (let i = 10002; i <= 10051; i++) {
-  const wrapper = document.createElement("div");
-  wrapper.className = "img-wrapper";
+// ✅ Load all images
+for (let i = 10002; i <= 10050; i++) {
+  if (missing.includes(i)) continue;
 
-  const img = document.createElement("img");
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('img-wrapper');
+
+  const img = document.createElement('img');
   img.src = `images/${i}.jpg`;
   img.alt = `Photo ${i}`;
-  img.addEventListener('click', () => openLightbox(img.src));
+  img.setAttribute('data-id', i);
 
-  const caption = document.createElement("p");
-  caption.className = "caption";
+  const caption = document.createElement('div');
+  caption.className = 'caption';
   caption.innerText = captions[i] || `Photo ${i}`;
 
   wrapper.appendChild(img);
@@ -34,19 +32,24 @@ for (let i = 10002; i <= 10051; i++) {
   gallery.appendChild(wrapper);
 }
 
-// 💡 Open Lightbox
-function openLightbox(src) {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
+// ✅ Lightbox logic
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
 
-  lightboxImg.src = src;
-  lightbox.classList.remove("hidden");
-  document.body.classList.add("no-scroll");
-}
+document.querySelectorAll('#gallery img').forEach(img => {
+  img.addEventListener('click', () => {
+    const imgId = img.getAttribute('data-id');
+    lightboxImg.src = img.src;
+    lightboxCaption.innerText = captions[imgId] || `Photo ${imgId}`;
+    lightbox.classList.remove('hidden');
+    document.body.classList.add('no-scroll');
+  });
+});
 
-// 🛑 Close on Click
-document.getElementById("lightbox").addEventListener("click", () => {
-  document.getElementById("lightbox").classList.add("hidden");
-  document.getElementById("lightbox-img").src = "";
-  document.body.classList.remove("no-scroll");
+lightbox.addEventListener('click', () => {
+  lightbox.classList.add('hidden');
+  lightboxImg.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+  lightboxCaption.innerText = '';
+  document.body.classList.remove('no-scroll');
 });
