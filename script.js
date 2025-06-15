@@ -82,6 +82,13 @@ validImageNumbers.forEach(num => {
   imgWrapper.appendChild(img);
   imgWrapper.appendChild(caption);
   gallery.appendChild(imgWrapper);
+// Ensure music plays on first user interaction
+document.addEventListener("click", () => {
+  const music = document.getElementById("bg-music");
+  if (music && music.paused) {
+    music.play().catch(e => console.log("Music play blocked:", e));
+  }
+}, { once: true });
 
   img.addEventListener("click", () => {
     lightboxImg.src = img.src;
