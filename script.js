@@ -95,3 +95,17 @@ lightbox.addEventListener("click", () => {
   lightbox.classList.add("hidden");
   document.body.classList.remove("no-scroll");
 });
+// ❤️ Beautiful Animated Falling Hearts add date 16-06-25  01:04pm
+function createFallingHearts(count = 20) {
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '💗'; // Change to 💖 💘 💕 if you want
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+    heart.style.fontSize = (1 + Math.random() * 2) + 'rem';
+    document.body.appendChild(heart);
+  }
+}
+
+createFallingHearts();
