@@ -57,7 +57,7 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const lightboxCaption = document.getElementById("lightbox-caption");
 
-// 💯 No skipping — include all from 10002 to 10052
+// 💯 No skipping — include all from 10002 to 10052 add more so just change the numberrrrrr 10053------
 for (let num = 10002; num <= 10052; num++) {
   const imgWrapper = document.createElement("div");
   imgWrapper.classList.add("img-wrapper");
@@ -100,7 +100,7 @@ function createFallingHearts(count = 20) {
   for (let i = 0; i < count; i++) {
     const heart = document.createElement('div');
     heart.className = 'heart';
-    heart.textContent = '💗'; // Change to 💖 💘 💕 if you want
+    heart.textContent = '💗'; // Changable to any emojiiiiiiiii💖 💘 💕
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.animationDuration = (4 + Math.random() * 3) + 's';
     heart.style.fontSize = (1 + Math.random() * 2) + 'rem';
