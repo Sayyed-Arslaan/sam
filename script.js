@@ -17,7 +17,7 @@ const captions = {
   10017: "A hug, without touching 🤍",
   10018: "I could stare at this forever 🌈",
   10019: "A memory wrapped in light ✨",
-  10020: " click 💕",
+  10020: "pookie click 💕",
   10021: "You shine without trying 🌟",
   10022: "If smiles were safe spaces 🧡",
   10023: "You don’t even know how loved you are 💗",
