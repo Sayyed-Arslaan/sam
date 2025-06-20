@@ -49,7 +49,18 @@ const captions = {
   10049: "You’re the beauty in this frame 💖",
   10050: "Best forever 💖",
   10051: "The calm in all my storms 🌧️☀️",
-  10052: "You and me — always a vibe 🫶"
+  10052: "You and me — always a vibe 🫶",
+  10053: "More moments with you, please 🌷",
+10054: "My favorite chapter of every story 💫",
+10055: "With you, everything feels right 💞",
+10056: "A smile that changes my world 🌍",
+10057: "You make ordinary moments magical ✨",
+10058: "Closer than friends, softer than words 🌺",
+10059: "My forever favorite picture of us 🥰",
+10060: "Through every phase, it's you 💕",
+10061: "In a world of noise, you're my peace 🌙",
+10062: "With you, every moment is a memory 🤍"
+
 };
 
 const gallery = document.getElementById("gallery");
