@@ -58,7 +58,7 @@ const lightboxImg = document.getElementById("lightbox-img");
 const lightboxCaption = document.getElementById("lightbox-caption");
 
 // 💯 No skipping — include all from 10002 to 10052 add more so just change the numberrrrrr 10053------
-for (let num = 10002; num <= 10052; num++) {
+for (let num = 10002; num <= 10062; num++) {            
   const imgWrapper = document.createElement("div");
   imgWrapper.classList.add("img-wrapper");
 
